@@ -32,18 +32,22 @@ public class CalculatorSteps extends ScenarioSteps {
 	@Step
 	public void enterKeyboardCalculatorButton(String argument){
 		char[] digits = argument.toCharArray();
+		System.out.println(Arrays.toString(digits));
 		for (int i = 0; i < digits.length; i++) {
+			System.out.println("digit:"+digits[i]);
 				if(Character.isDigit(digits[i])){
-					calculatorPage.pressCalculatorButton(Keys.valueOf("NUMPUD"+digits[i]));
+					System.out.println("button:"+digits[i]);
+					System.out.println(Keys.valueOf("NUMPAD"+digits[i]));
+					calculatorPage.pressCalculatorButton(Keys.valueOf("NUMPAD"+digits[i]));
 			}
 				else{
 					switch(digits[i]){
 					case '=': calculatorPage.pressCalculatorButton(Keys.EQUALS);break;
 					case '.': calculatorPage.pressCalculatorButton(Keys.SEPARATOR);break;
-					case '-': calculatorPage.pressCalculatorButton(Keys.SUBTRACT);break;
-					case '+': calculatorPage.pressCalculatorButton(Keys.SUBTRACT);break;
-					case '÷': calculatorPage.pressCalculatorButton(Keys.SUBTRACT);break;
-					case '*':  calculatorPage.pressCalculatorButton(Keys.SUBTRACT);break;
+					case '−': calculatorPage.pressCalculatorButton(Keys.SUBTRACT);break;
+					case '+': calculatorPage.pressCalculatorButton(Keys.ADD);break;
+					case '÷': calculatorPage.pressCalculatorButton(Keys.DIVIDE);break;
+					case '×':  calculatorPage.pressCalculatorButton(Keys.MULTIPLY);break;
 					default: throw new IllegalArgumentException("No such keys on the keyboard: "+argument);
 					}
 				}
@@ -55,11 +59,6 @@ public class CalculatorSteps extends ScenarioSteps {
 		calculatorPage.focusDisplayOutput();
 	}
 	
-	@Step
-	public void enterCalculatorButtonFromKeyboard(String argument){
-		
-	}
-
 	@Step
 	public String getCalculationResult() {
 		return calculatorPage.getDisplayOutput();

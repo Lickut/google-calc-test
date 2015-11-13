@@ -18,8 +18,8 @@ public class GoogleCalculatorPage extends PageObject {
 	@FindBy(id = "cwos")
 	private WebElement displayOutput;
 	
-//	@FindBy(id = "cwbt45")
-//	private WebElement equalsButton;
+	@FindBy(id = "cwtltblr")
+	private WebElement display;
 
 	public void pressCalculatorButton(String buttonName) {
 		System.out.println("buttonName: "+buttonName);
@@ -28,7 +28,7 @@ public class GoogleCalculatorPage extends PageObject {
 	
 	public void pressCalculatorButton(Keys buttonKey) {
 		System.out.println("buttonName: "+buttonKey);
-		displayOutput.sendKeys(buttonKey);;
+		display.sendKeys(buttonKey);;
 	}
 
 	public String getDisplayOutput() {
@@ -36,7 +36,7 @@ public class GoogleCalculatorPage extends PageObject {
 	}
 	
 	public void focusDisplayOutput(){
-		new Actions(getDriver()).moveToElement(displayOutput).click().perform();
+//		new Actions(getDriver()).moveToElement(displayOutput).click().perform();
 	}
 }
 	

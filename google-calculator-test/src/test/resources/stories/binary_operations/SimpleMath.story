@@ -12,8 +12,8 @@ Then The user sees <result>
 Examples:
 |argument1|argument2|operation|result|
 |123|45|+|168|
-|67|89|-|-22|
-|-10.0|5|*|-50|
+|67|89|−|-22|
+|−10.0|5|×|-50|
 |15|3|÷|5|
 |1|3|÷|0.33333333333|
 |1|0|÷|Infinity|
@@ -27,8 +27,8 @@ Then The user sees <result>
 Examples:
 |argument1|argument2|operation|result|
 |123|45|+|168|
-|67|89|-|-22|
-|-10.0|5|*|-50|
+|67|89|−|-22|
+|−10.0|5|×|-50|
 |15|3|÷|5|
 |1|3|÷|0.33333333333|
 |1|0|÷|Infinity|

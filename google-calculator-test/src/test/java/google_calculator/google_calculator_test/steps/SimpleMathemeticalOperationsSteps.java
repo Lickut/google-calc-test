@@ -35,11 +35,18 @@ public class SimpleMathemeticalOperationsSteps {
 		calculator.enterCalculatorButton(EQUALS_SIGN);
 	}
 	
+	@When("The user presses enter keyboard button")
+	public void userPressesEnterKeyboardButton(){
+		calculator.enterKeyboardCalculatorButton(EQUALS_SIGN);
+	}
+	
 	@When("The user enters arguments <argument1> and <argument2> with operation <operation> using keyboard")
 	public void usersFocusesCalculatorDisplayOutput(@Named("argument1") String argument1, @Named("argument2") String argument2,
 			@Named("operation") String operation){
 		calculator.focusCalculatorDisplayOutput();
-		
+		calculator.enterKeyboardCalculatorButton(argument1);
+		calculator.enterKeyboardCalculatorButton(operation);
+		calculator.enterKeyboardCalculatorButton(argument2);
 	}
 
 	@Then("The user sees <result>")
